@@ -1,16 +1,24 @@
-import { useState } from 'react'
+import { Route, BrowserRouter, Routes } from "react-router-dom"
+import Navbar from "./components/Navbar"
+import HomePage from "./pages/HomePage"
+import QuestionsPage from "./pages/QuestionsPage"
+import UsersPage from "./pages/UserPage"
 
-
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-    <div className="min-h-screen flex items-center justify-center bg-red-500 text-white text-4xl font-bold">
-        CuriousMuch.com!
-    </div>
-    </>
+    <BrowserRouter>
+      <div className="min-h-screen bg-gray-50">
+        <Navbar/>
+        <main className="container mx-auto px-4 py-8">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/questions" element={<QuestionsPage />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   )
 }
 
-export default App
+export default App;
