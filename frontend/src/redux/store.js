@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 const store = configureStore({
     reducer: {
-        // Add your reducers here when needed
+        app: (state = {}, action) => state
     }
 });
 
